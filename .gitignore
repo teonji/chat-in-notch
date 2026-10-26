@@ -1,0 +1,29 @@
+# Build output
+.build/
+.swiftpm/
+build/
+dist/
+
+# Site (SvelteKit)
+node_modules/
+.svelte-kit/
+.vite/
+*.tsbuildinfo
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Logs and caches
+*.log
+.cache/
+coverage/
+
+# Xcode, editors and macOS
+*.xcodeproj/xcuserdata/
+xcuserdata/
+.idea/
+.vscode/
+*.swp
+.DS_Store

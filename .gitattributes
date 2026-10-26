@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+*.png binary
+*.icns binary
+*.gif binary
+
+# Keep generated and vendored files out of language statistics and diffs.
+site/package-lock.json linguist-generated
