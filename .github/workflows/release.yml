@@ -1,0 +1,42 @@
+name: Release
+
+# On every push to main, release-please opens (or updates) a "release PR" with the version and
+# changelog computed from Conventional Commits. When that PR is merged it creates the tag and the
+# GitHub release, and the "build" job attaches the app zip.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.rp.outputs.release_created }}
+      tag_name: ${{ steps.rp.outputs.tag_name }}
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: rp
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  build:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
+    runs-on: xcode-27
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the zip
+        run: ./package.sh
+      - name: Checksum
+        run: shasum -a 256 Chat-in-Notch.zip > Chat-in-Notch.zip.sha256
+        working-directory: dist
+      - name: Attach to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ needs.release-please.outputs.tag_name }}" dist/Chat-in-Notch.zip dist/Chat-in-Notch.zip.sha256 --clobber

@@ -1,0 +1,24 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['site/**', '*.md']
+  pull_request:
+    paths-ignore: ['site/**', '*.md']
+
+jobs:
+  lint:
+    runs-on: xcode-27
+    steps:
+      - uses: actions/checkout@v4
+      - name: swift-format
+        run: xcrun swift-format lint --recursive --strict Sources Package.swift
+
+  build:
+    # GitHub-hosted image with macOS 27 and Xcode 27 (Apple silicon).
+    runs-on: xcode-27
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and assemble the app
+        run: ./build.sh
