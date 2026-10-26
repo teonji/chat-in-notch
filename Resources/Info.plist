@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key><string>Chat in Notch</string>
+    <key>CFBundleDisplayName</key><string>Chat in Notch</string>
+    <key>CFBundleIdentifier</key><string>dev.teonji.chatinotch</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
+    <key>CFBundleExecutable</key><string>ChatInNotch</string>
+    <key>CFBundlePackageType</key><string>APPL</string>
+    <key>CFBundleShortVersionString</key><string>1.0.0</string><!-- x-release-please-version -->
+    <key>CFBundleVersion</key><string>1</string>
+    <key>LSMinimumSystemVersion</key><string>27.0</string>
+    <key>NSMicrophoneUsageDescription</key><string>Chat in Notch uses the microphone to dictate messages. Audio is processed on your Mac only.</string>
+    <key>LSApplicationCategoryType</key><string>public.app-category.productivity</string>
+    <key>NSHumanReadableCopyright</key><string>Copyright © 2026 teonji. Released under the MIT License.</string>
+    <key>LSUIElement</key><true/>
+    <key>NSHighResolutionCapable</key><true/>
+</dict>
+</plist>
