@@ -1,0 +1,12 @@
+{
+  "name": "Chat in Notch",
+  "short_name": "Chat in Notch",
+  "description": "An offline AI chat in your Mac notch.",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#0b0c11",
+  "background_color": "#0b0c11",
+  "display": "browser"
+}
