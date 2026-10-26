@@ -11,7 +11,7 @@ jobs:
   lint:
     runs-on: xcode-27
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: swift-format
         run: xcrun swift-format lint --recursive --strict Sources Package.swift
 
@@ -19,6 +19,6 @@ jobs:
     # GitHub-hosted image with macOS 27 and Xcode 27 (Apple silicon).
     runs-on: xcode-27
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build and assemble the app
         run: ./build.sh

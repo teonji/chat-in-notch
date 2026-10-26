@@ -30,7 +30,7 @@ jobs:
     if: ${{ needs.release-please.outputs.release_created == 'true' }}
     runs-on: xcode-27
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build the zip
         run: ./package.sh
       - name: Checksum
